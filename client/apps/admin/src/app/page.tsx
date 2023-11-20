@@ -13,10 +13,10 @@ export default function Home() {
         <div key={blog.id} className="border">
           <div>Title: {blog.title}</div>
           <div>Category: {blog.category}</div>
-          <div>Tags: {blog.tags.join(", ")}</div>
+          <div>Tags: {blog.tags?.join(", ")}</div>
           <div>Contents: {blog.contents}</div>
-          <div>CreatedAt: {blog.createdAt.toDate().toString()}</div>
-          <div>UpdatedAt: {blog.updatedAt.toDate().toString()}</div>
+          <div>CreatedAt: {blog.createdAt?.toDate().toString()}</div>
+          <div>UpdatedAt: {blog.updatedAt?.toDate().toString()}</div>
         </div>
       ))}
     </main>

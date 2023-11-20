@@ -1,6 +1,6 @@
 import { Timestamp } from "firebase/firestore";
 
-export interface Blogs {
+export interface Blog {
   title: string;
   category: string;
   tags: string[];

@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { getBlogs } from "apis/blog";
+import { getBlogs, postBlog } from "apis/blog";
 import { blogsKeys } from "queries/keys/blogs";
 
 export const useGetBlogs = () => {
@@ -8,5 +8,11 @@ export const useGetBlogs = () => {
     queryKey: blogsKeys.list(),
     queryFn: getBlogs,
     select: (res) => res.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
+  });
+};
+
+export const usePostBlog = () => {
+  return useMutation({
+    mutationFn: postBlog,
   });
 };

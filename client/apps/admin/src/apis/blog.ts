@@ -1,9 +1,14 @@
-import { getDocs, Query, query } from "firebase/firestore";
+import { addDoc, collection, getDocs, Query, query } from "firebase/firestore";
 
-import { Blogs } from "types/blogs";
-import { blogsFirestore } from "utils/firebase/store";
+import { Blog } from "types/blogs";
+import { blogsFirestore, firebaseFirestore } from "utils/firebase/store";
 
 export const getBlogs = async () => {
-  const snapshot = await getDocs(query(blogsFirestore) as Query<Blogs, Blogs>);
+  const snapshot = await getDocs(query(blogsFirestore) as Query<Blog, Blog>);
   return snapshot;
+};
+
+export const postBlog = async (blog: Blog) => {
+  const docRef = await addDoc(collection(firebaseFirestore, "blogs"), blog);
+  return docRef;
 };

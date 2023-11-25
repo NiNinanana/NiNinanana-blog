@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, Query, query } from "firebase/firestore";
 
 import { Tag } from "types/tags";
+import { firebaseCollections } from "utils/firebase/collections";
 import { firebaseFirestore, tagsFirestore } from "utils/firebase/store";
 
 export const getTags = async () => {
@@ -9,11 +10,11 @@ export const getTags = async () => {
 };
 
 export const postTag = async (tag: Tag) => {
-  const docRef = await addDoc(collection(firebaseFirestore, "tags"), tag);
+  const docRef = await addDoc(collection(firebaseFirestore, firebaseCollections.tag), tag);
   return docRef;
 };
 
 export const deleteTag = async (id: string) => {
-  const docRef = await deleteDoc(doc(firebaseFirestore, "tags", id));
+  const docRef = await deleteDoc(doc(firebaseFirestore, firebaseCollections.tag, id));
   return docRef;
 };

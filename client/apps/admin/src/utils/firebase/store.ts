@@ -5,5 +5,6 @@ import { firebaseApp } from "utils/firebase";
 const firebaseFirestore = getFirestore(firebaseApp);
 
 const blogsFirestore = collection(firebaseFirestore, "blogs");
+const categoriesFirestore = collection(firebaseFirestore, "categories");
 
-export { firebaseFirestore, blogsFirestore };
+export { firebaseFirestore, blogsFirestore, categoriesFirestore };

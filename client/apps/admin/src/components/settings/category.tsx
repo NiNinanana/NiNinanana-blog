@@ -3,19 +3,20 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { useGetCategories, usePostCategory } from "queries/category";
-import { Category } from "types/categories";
+import { useDeleteCategory, useGetCategories, usePostCategory } from "queries/category";
+import { Category, CategoryWithId } from "types/categories";
 
 const CategorySettings = () => {
   const { data, refetch } = useGetCategories();
 
   const { handleSubmit, register, setValue } = useForm<Category>();
 
-  const { mutate } = usePostCategory();
+  const { mutate: postCategoryMutate } = usePostCategory();
+  const { mutate: deleteCategoryMutate } = useDeleteCategory();
 
   const onSubmit: SubmitHandler<Category> = (data) => {
     if (!confirm(`카테고리 이름: ${data.name} / 생성?`)) return;
-    mutate(
+    postCategoryMutate(
       { name: data.name },
       {
         onSuccess: () => {
@@ -24,6 +25,15 @@ const CategorySettings = () => {
         },
       },
     );
+  };
+
+  const onDelete = (category: CategoryWithId) => {
+    if (!confirm(`카테고리 이름: ${category.name} / 삭제?`)) return;
+    deleteCategoryMutate(category.id, {
+      onSuccess: () => {
+        refetch();
+      },
+    });
   };
 
   return (
@@ -37,7 +47,14 @@ const CategorySettings = () => {
         </form>
       </div>
       <div className="border border-black p-3 grid grid-cols-3 gap-5">
-        {data?.map((category) => <div key={category.id}>{category.name}</div>)}
+        {data?.map((category) => (
+          <div className="flex gap-5" key={category.id}>
+            <span>{category.name}</span>
+            <button className="border px-2" onClick={() => onDelete(category)}>
+              삭제
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

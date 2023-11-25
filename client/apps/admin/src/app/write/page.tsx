@@ -3,7 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import { usePostBlog } from "queries/blogs";
+import { usePostBlog } from "queries/blog";
 import { Blog } from "types/blogs";
 import Editor from "components/editor";
 

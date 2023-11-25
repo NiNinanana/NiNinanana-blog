@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 import { getBlogs, postBlog } from "apis/blog";
-import { blogsKeys } from "queries/keys/blogs";
+import { blogsKeys } from "queries/blog/keys";
 
 export const useGetBlogs = () => {
   return useQuery({

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useGetBlogs } from "queries/blogs";
+import { useGetBlogs } from "queries/blog";
 
 export default function Home() {
   const { data } = useGetBlogs();

@@ -11,7 +11,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <QueryProvider>
       <Header />
-      {children}
+      <main className="flex justify-center">
+        <div className="max-w-[1100px] w-full px-10 py-5">{children}</div>
+      </main>
     </QueryProvider>
   );
 };

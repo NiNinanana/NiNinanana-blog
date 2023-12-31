@@ -2,25 +2,34 @@
 
 import React from "react";
 
+import ArticleCard from "components/card";
+import Bubble from "components/Home/bubble";
 import { useGetBlogs } from "queries/blogs";
 
 export default function Home() {
   const { data } = useGetBlogs();
 
   return (
-    <main className="flex min-h-screen flex-col p-5 gap-5">
-      {data?.map((blog) => (
-        <div key={blog.id} className="border">
-          <div>Title: {blog?.title}</div>
-          <div>Category: {blog?.category}</div>
-          <div>Tags: {blog?.tags?.join(", ")}</div>
-          <div>
-            Contents: <div dangerouslySetInnerHTML={{ __html: blog?.contents }} />
-          </div>
-          <div>CreatedAt: {blog?.createdAt?.toDate().toString()}</div>
-          <div>UpdatedAt: {blog?.updatedAt?.toDate().toString()}</div>
-        </div>
-      ))}
-    </main>
+    <div className="flex flex-col gap-10">
+      <div className="flex justify-between">
+        <Bubble href="/html-css" imageName="html.svg" />
+        <Bubble href="/js-ts" imageName="javascript.svg" />
+        <Bubble href="/react-next" imageName="react.png" />
+        <Bubble href="/express" imageName="express.png" />
+        <Bubble href="/cs" imageName="computer-science.png" isNeedRadius={true} />
+      </div>
+      <div className="flex flex-col gap-10">
+        {data?.map((blog) => (
+          <ArticleCard
+            imageUrl={blog?.imageUrl}
+            key={blog.id}
+            category={blog.category}
+            date={blog.updatedAt?.toDate().toString()}
+            summary={blog?.summary}
+            title={blog.title}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

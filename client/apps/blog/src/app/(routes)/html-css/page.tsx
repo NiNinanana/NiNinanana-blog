@@ -3,23 +3,22 @@
 import React from "react";
 
 import { useGetBlogs } from "queries/blogs";
+import ArticleCard from "components/card";
 
 const HtmlCssPage = () => {
   const { data } = useGetBlogs();
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-10">
       {data?.map((blog) => (
-        <div key={blog.id} className="border border-black">
-          <div>Title: {blog?.title}</div>
-          <div>Category: {blog?.category}</div>
-          <div>Tags: {blog?.tags?.join(", ")}</div>
-          <div>
-            Contents: <div dangerouslySetInnerHTML={{ __html: blog?.contents }} />
-          </div>
-          <div>CreatedAt: {blog?.createdAt?.toDate().toString()}</div>
-          <div>UpdatedAt: {blog?.updatedAt?.toDate().toString()}</div>
-        </div>
+        <ArticleCard
+          imageUrl={blog?.imageUrl}
+          key={blog.id}
+          category={blog.category}
+          date={blog.updatedAt?.toDate().toString()}
+          summary={blog?.summary}
+          title={blog.title}
+        />
       ))}
     </div>
   );

@@ -18,7 +18,7 @@ const WritePage = () => {
   };
 
   return (
-    <div className="p-5">
+    <div>
       <div className="mb-16">WritePage</div>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
         <div className="flex gap-5">

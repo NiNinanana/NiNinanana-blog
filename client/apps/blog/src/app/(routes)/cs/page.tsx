@@ -12,6 +12,7 @@ const CsPage = () => {
     <div className="flex flex-col gap-10">
       {data?.map((blog) => (
         <ArticleCard
+          id={blog.id}
           imageUrl={blog?.imageUrl}
           key={blog.id}
           category={blog.category}

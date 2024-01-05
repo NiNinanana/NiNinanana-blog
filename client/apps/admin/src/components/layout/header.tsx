@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="h-20 bg-pink-200 shadow-md flex justify-center items-center sticky -top-4 bg-white pt-4 z-10">
+    <header className="h-20 bg-pink-200 shadow-md flex justify-center items-center sticky -top-4 pt-4 z-10">
       <div className="text-white text-xl font-bold max-w-[1100px] px-10 w-full flex items-center justify-between">
         Admin
         <div className="flex gap-5">

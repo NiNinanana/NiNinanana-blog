@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 interface ArticleCardProps {
   title: string;
@@ -8,11 +9,15 @@ interface ArticleCardProps {
   summary: string;
   imageUrl: string;
   date: Date | string;
+  id: string;
 }
 
-const ArticleCard = ({ title, category, summary, imageUrl, date }: ArticleCardProps) => {
+const ArticleCard = ({ title, category, summary, imageUrl, date, id }: ArticleCardProps) => {
   return (
-    <div className="shadow-md rounded-lg flex p-5 gap-5 cursor-pointer transition-all hover:bg-[#EBEBEB] hover:-translate-y-2">
+    <Link
+      href={`/articles/${id}`}
+      className="shadow-md rounded-lg flex p-5 gap-5 cursor-pointer transition-all hover:bg-[#EBEBEB] hover:-translate-y-2"
+    >
       <div className="relative w-[200px] h-[200px]">
         <Image
           src={imageUrl || "/images/react.png"}
@@ -32,7 +37,7 @@ const ArticleCard = ({ title, category, summary, imageUrl, date }: ArticleCardPr
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

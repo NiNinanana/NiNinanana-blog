@@ -2,7 +2,7 @@ name: build-blog
 on:
   push:
     paths:
-      - "apps/blog/**"
+      - "client/apps/blog/**"
 jobs:
   Run-Build:
     runs-on: ubuntu-latest

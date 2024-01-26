@@ -20,7 +20,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
         <span className="py-1 px-5 bg-indigo-100 rounded-lg text-lg">{data?.category}</span>
         <span>{data?.tags?.join(", ")}</span>
       </div>
-      <div>
+      <div className="w-full">
         <Markdown>{data?.contents}</Markdown>
       </div>
     </div>

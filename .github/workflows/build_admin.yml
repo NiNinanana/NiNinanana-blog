@@ -2,7 +2,7 @@ name: build-admin
 on:
   push:
     paths:
-      - "apps/admin/**"
+      - "client/apps/admin/**"
 jobs:
   Run-Build:
     runs-on: ubuntu-latest

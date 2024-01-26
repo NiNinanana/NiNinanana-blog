@@ -14,13 +14,12 @@ jobs:
         with:
           node-version: 20.10.0
 
-      - name: Move to Client
-        run: cd client
-
       - name: Install dependencies
         run: |
           npm install -g pnpm
           pnpm install
+        working-directory: client
 
       - name: Build
         run: pnpm build-admin
+        working-directory: client

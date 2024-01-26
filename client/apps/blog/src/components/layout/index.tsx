@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <QueryProvider>
       <Header />
       <main className="flex justify-center">
-        <div className="max-w-[1100px] w-full px-10 py-5">{children}</div>
+        <div className="max-w-[700px] w-full px-10 py-5">{children}</div>
       </main>
     </QueryProvider>
   );

@@ -12,7 +12,7 @@ const Bubble = ({ imageName, isNeedRadius, href }: BubbleProps) => {
   return (
     <Link
       href={href}
-      className="rounded-full bg-gradient-to-r from-[#EDEDED] to-white shadow-lg w-28 h-28 p-6 flex items-center justify-center m-4 cursor-pointer hover:bg-none hover:bg-[#DBDBDB] transition-[background-color] duration-300"
+      className="rounded-full bg-gradient-to-r from-[#EDEDED] to-white shadow-lg w-20 h-20 p-6 flex items-center justify-center m-4 cursor-pointer hover:bg-none hover:bg-[#DBDBDB] transition-[background-color] duration-300"
     >
       <div className="relative w-full h-full rounded-full">
         <Image

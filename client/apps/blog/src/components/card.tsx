@@ -16,9 +16,9 @@ const ArticleCard = ({ title, category, summary, imageUrl, date, id }: ArticleCa
   return (
     <Link
       href={`/articles/${id}`}
-      className="shadow-md rounded-lg flex p-5 gap-5 cursor-pointer transition-all hover:bg-[#EBEBEB] hover:-translate-y-2"
+      className="shadow-md rounded-lg flex p-5 gap-5 h-full cursor-pointer items-center transition-all hover:bg-[#EBEBEB] hover:-translate-y-2"
     >
-      <div className="relative w-[200px] h-[200px]">
+      <div className="relative min-w-[150px] h-[150px]">
         <Image
           src={imageUrl || "/images/react.png"}
           alt="image"
@@ -28,7 +28,7 @@ const ArticleCard = ({ title, category, summary, imageUrl, date, id }: ArticleCa
         />
       </div>
       <div className="flex justify-center flex-col gap-5">
-        <h2 className="text-3xl">{title}</h2>
+        <h2 className="text-3xl m-0">{title}</h2>
         <div className="flex flex-col gap-1">
           <p className="text-lg">{summary}</p>
           <div className="flex gap-2 items-center">
